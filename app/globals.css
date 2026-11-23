@@ -1,27 +1,119 @@
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
+
 body {
+  min-height: 100vh;
   margin: 0;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  background: #f4f6fb;
-  color: #1a1a2e;
+  color: #172033;
+  background:
+    radial-gradient(circle at 10% 5%, #dce7ff 0, transparent 28rem),
+    #f5f7fc;
 }
-main {
-  max-width: 720px;
+
+.store {
+  width: min(1040px, calc(100% - 40px));
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 72px 0;
 }
-.store h1 { color: #1f4e78; }
-.greeting { color: #7c5cff; }
-.cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: #3157d5;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.store h1 {
+  margin: 0;
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+}
+
+.greeting {
+  max-width: 680px;
+  margin: 22px 0 42px;
+  color: #657087;
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  font-weight: 500;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
 .card {
+  padding: 24px;
+  border: 1px solid #d8deec;
+  border-radius: 20px;
   background: #fff;
-  border: 1px solid #d8ddec;
-  border-radius: 14px;
-  padding: 16px 18px;
-  box-shadow: 0 4px 14px #1a1a2e0d;
+  box-shadow: 0 18px 40px #26304a12;
 }
-.card h3 { margin: 0 0 6px; color: #1f4e78; }
-.card p { margin: 4px 0; }
-.price { font-weight: 700; color: #12a150; }
-.todo { color: #c0353a; font-style: italic; }
-@media (max-width: 560px) { .cards { grid-template-columns: 1fr; } }
+
+.product-icon {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 30px;
+  place-items: center;
+  border-radius: 14px;
+  color: #fff;
+  background: #3157d5;
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.card:nth-child(2) .product-icon {
+  background: #7955d9;
+}
+
+.card:nth-child(3) .product-icon {
+  background: #e26b42;
+}
+
+.card h3 {
+  min-height: 48px;
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+}
+
+.price {
+  color: #172033;
+  font-size: 1.55rem;
+  font-weight: 800;
+}
+
+.stock {
+  display: inline-block;
+  margin: 20px 0 0;
+  padding: 7px 10px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 750;
+}
+
+.stock--available {
+  color: #096b4d;
+  background: #dcf5e9;
+}
+
+.stock--sold-out {
+  color: #9e3b35;
+  background: #fee5e2;
+}
+
+@media (max-width: 760px) {
+  .store {
+    padding: 48px 0;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
